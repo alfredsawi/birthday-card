@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#12091d">
+<title>Joyeux anniversaire — SAWI INÈS MAHOUNA</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Cormorant+Garamond:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<audio id="birthdayMusic" loop preload="auto">
+  <source src="birthday.mp3" type="audio/mpeg">
+</audio>
+
+<button id="soundBtn" class="sound-btn" aria-label="Activer ou couper le son" aria-pressed="false">🔇</button>
+<div class="visualizer" id="visualizer" aria-hidden="true">
+  <i></i><i></i><i></i><i></i><i></i>
+</div>
+
+<div class="stars"></div>
+<div class="glow glow-1"></div>
+<div class="glow glow-2"></div>
+
+<div id="confetti"></div>
+<canvas id="fireworks"></canvas>
+
+<!-- 1. INTRO -->
+<section id="intro" class="scene show">
+  <div class="intro-card">
+    <div class="intro-symbol">🎁</div>
+    <p class="small-title">UNE PETITE SURPRISE</p>
+    <h1>Joyeux anniversaire</h1>
+    <div class="intro-line"></div>
+    <p class="intro-text">Une pensée spéciale pour<br><strong>SAWI INÈS MAHOUNA</strong></p>
+    <p class="age-line">48 ans — 11 septembre</p>
+    <button id="openBtn" class="action-btn">
+      <span>Ouvrir la surprise</span>
+      <b>→</b>
+    </button>
+  </div>
+</section>
+
+<!-- 2. GÂTEAU — bougies "48" -->
+<section id="cakeScene" class="scene">
+  <div class="cake-wrap">
+    <p class="scene-hint">FAIS UN VŒU, PUIS SOUFFLE LES BOUGIES</p>
+    <div class="candle-nums">
+      <div class="num-candle">4<span class="flame"></span></div>
+      <div class="num-candle">8<span class="flame"></span></div>
+    </div>
+    <div class="tiers">
+      <div class="tier tier-1"></div>
+      <div class="tier tier-2"></div>
+    </div>
+    <div class="plate"></div>
+    <button id="blowBtn" class="action-btn">Souffle les bougies 🕯️</button>
+    <p class="wish-text" id="wishText">✨ Vœu exaucé ✨</p>
+  </div>
+</section>
+
+<!-- 3. ENVELOPPE -->
+<section id="envelopeScene" class="scene">
+  <div class="envelope-wrap">
+    <p class="scene-hint">UNE LETTRE T'ATTEND</p>
+    <div class="envelope" id="envelope">
+      <div class="envelope-letter-peek"></div>
+      <div class="envelope-back"></div>
+      <div class="envelope-flap"><span class="envelope-seal">I·M</span></div>
+    </div>
+    <button id="openEnvelopeBtn" class="action-btn">Ouvrir la lettre 💌</button>
+  </div>
+</section>
+
+<!-- 4. LETTRE -->
+<main id="birthdayCard">
+  <div class="card-glow"></div>
+  <div class="age-watermark" aria-hidden="true">48</div>
+
+  <div class="card-border">
+    <div class="seal">I·M</div>
+    <div class="ornament ornament-1">✦</div>
+    <div class="ornament ornament-2">✦</div>
+    <div class="ornament ornament-3">✦</div>
+    <div class="ornament ornament-4">✦</div>
+
+    <header class="letter-header">
+      <div class="senders">
+        <span>Sawi Samuel</span>
+        <span>Sawi Félicité</span>
+      </div>
+      <div class="date">Agbalilamé, le 11/09/26</div>
+    </header>
+
+    <section class="recipient">
+      <div class="parents-block">
+        <span class="parents-label">Des parents :</span>
+        <span>Sawi Samuel</span>
+        <span>et Sawi Félicité</span>
+      </div>
+
+      <p class="daughter">à leur fille aînée</p>
+      <h2 class="person-name">SAWI INÈS MAHOUNA</h2>
+      <div class="age-badge"><b>48</b><span>ans</span></div>
+    </section>
+
+    <section class="message">
+      <p>
+        En ce grand jour de rappel <span>(anniversaire)</span> de ta naissance
+        <strong>11/9/78 — 11/9/26</strong>, pour tes 48 ans d'existence,
+        en attendant une bonne retraite.
+      </p>
+      <p>Nous, tes parents, te souhaitons le double en attendant la volonté du Seigneur.</p>
+      <p>Une longue vie sans maladie pour toi et ton foyer.</p>
+      <p class="glory">Gloire soit rendue au Seigneur</p>
+    </section>
+
+    <footer class="card-footer">
+      <div class="amen">Amen</div>
+      <div class="footer-symbol">✧</div>
+    </footer>
+
+    <button id="finishBtn" class="finish-btn">Terminé de lire 💌</button>
+  </div>
+</main>
+
+<!-- 5. BALLONS -->
+<section id="balloonScene" class="scene">
+  <div class="balloon-wrap">
+    <p class="scene-hint" id="balloonHint">ÉCLATE LES 6 BALLONS DE VŒUX</p>
+    <div class="balloon-field" id="balloonField">
+      <div class="game-balloon" style="background:#a96de8; --delay:0s"></div>
+      <div class="game-balloon" style="background:#ed91d4; --delay:.3s"></div>
+      <div class="game-balloon" style="background:#8379ed; --delay:.6s"></div>
+      <div class="game-balloon" style="background:#d39be9; --delay:.15s"></div>
+      <div class="game-balloon" style="background:#e99fd9; --delay:.45s"></div>
+      <div class="game-balloon" style="background:#917be9; --delay:.75s"></div>
+    </div>
+    <p class="balloon-count" id="balloonCount">6 restants</p>
+  </div>
+</section>
+
+<!-- 6. FINALE -->
+<section id="finalScene" class="scene">
+  <div class="final-wrap">
+    <div class="final-symbol">🎉</div>
+    <h1 class="final-title">Bon anniversaire</h1>
+    <p class="final-name">SAWI INÈS MAHOUNA</p>
+    <button id="replayBtn" class="action-btn">Recommencer</button>
+  </div>
+</section>
+
+<script src="script.js"></script>
+
+</body>
+</html>
