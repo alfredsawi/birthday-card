@@ -1,0 +1,1380 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+:root {
+
+    --bg-1: #09050e;
+    --bg-2: #160b22;
+
+    --purple: #a875ff;
+    --pink: #ef9ddd;
+    --violet: #8275ff;
+
+    --text: #302536;
+    --soft-text: #6d5a70;
+
+    --card: #fffaff;
+
+}
+
+
+html {
+    min-height: 100%;
+}
+
+
+body {
+
+    min-height: 100vh;
+
+    overflow-x: hidden;
+
+    background:
+        radial-gradient(
+            circle at 50% 35%,
+            #39204c 0%,
+            #1a0d27 38%,
+            #0b0610 78%
+        );
+
+    color: white;
+
+    font-family:
+        "Caveat",
+        cursive;
+
+}
+
+
+/* =========================
+   ÉTOILES
+========================= */
+
+.stars {
+
+    position: fixed;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    opacity: .65;
+
+    background-image:
+        radial-gradient(
+            circle,
+            rgba(255,255,255,.8) 1px,
+            transparent 1px
+        );
+
+    background-size:
+        80px 80px;
+
+    z-index: 0;
+
+}
+
+
+/* =========================
+   LUEURS
+========================= */
+
+.glow {
+
+    position: fixed;
+
+    width: 280px;
+    height: 280px;
+
+    border-radius: 50%;
+
+    filter: blur(90px);
+
+    pointer-events: none;
+
+    opacity: .25;
+
+    z-index: 0;
+
+}
+
+
+.glow-1 {
+
+    background: #a45cff;
+
+    top: 5%;
+    left: -100px;
+
+}
+
+
+.glow-2 {
+
+    background: #e774ce;
+
+    right: -120px;
+    bottom: 10%;
+
+}
+
+
+/* =========================
+   SON
+========================= */
+
+.sound-btn {
+
+    position: fixed;
+
+    top: 16px;
+    right: 16px;
+
+    width: 38px;
+    height: 38px;
+
+    border-radius: 50%;
+
+    border: 1px solid
+        rgba(255,255,255,.22);
+
+    background:
+        rgba(255,255,255,.08);
+
+    color: white;
+
+    backdrop-filter: blur(10px);
+
+    font-size: 15px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    z-index: 1000;
+
+    cursor: pointer;
+
+    transition:
+        transform .2s ease,
+        background .2s ease;
+
+}
+
+
+.sound-btn:active {
+
+    transform: scale(.88);
+
+}
+
+
+/* =========================
+   INTRO
+========================= */
+
+#intro {
+
+    min-height: 100vh;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    position: relative;
+
+    z-index: 20;
+
+    padding: 25px;
+
+}
+
+
+.intro-card {
+
+    width: min(90vw, 550px);
+
+    padding: 50px 30px;
+
+    animation:
+        introAppear 1s ease forwards;
+
+}
+
+
+.intro-symbol {
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 50px;
+
+    color: #e7b4ff;
+
+    margin-bottom: 15px;
+
+    animation:
+        symbolFloat 3s ease-in-out infinite;
+
+}
+
+
+.small-title {
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 14px;
+
+    letter-spacing: 5px;
+
+    color: #cdbbd5;
+
+    margin-bottom: 12px;
+
+}
+
+
+.intro-card h1 {
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-weight: 500;
+
+    font-size:
+        clamp(42px, 10vw, 68px);
+
+    line-height: 1;
+
+    margin-bottom: 22px;
+
+}
+
+
+.intro-line {
+
+    width: 80px;
+
+    height: 1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #d69be9,
+            transparent
+        );
+
+    margin: auto auto 22px;
+
+}
+
+
+.intro-text {
+
+    color: #d9ccdf;
+
+    font-size: 21px;
+
+    line-height: 1.5;
+
+    margin-bottom: 32px;
+
+}
+
+
+.intro-text strong {
+
+    color: white;
+
+    font-weight: 600;
+
+}
+
+
+#openBtn {
+
+    border: 1px solid
+        rgba(255,255,255,.35);
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(178,116,255,.18),
+            rgba(239,157,221,.12)
+        );
+
+    color: white;
+
+    padding: 13px 22px;
+
+    border-radius: 30px;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 18px;
+
+    cursor: pointer;
+
+    backdrop-filter: blur(12px);
+
+    transition:
+        transform .25s ease,
+        box-shadow .25s ease;
+
+}
+
+
+#openBtn b {
+
+    margin-left: 10px;
+
+    font-size: 20px;
+
+}
+
+
+#openBtn:hover {
+
+    transform:
+        translateY(-3px);
+
+    box-shadow:
+        0 12px 35px
+        rgba(174,103,255,.25);
+
+}
+
+
+/* =========================
+   BALLONS
+========================= */
+
+.balloons {
+
+    position: fixed;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    overflow: hidden;
+
+    z-index: 3;
+
+    opacity: 0;
+
+    transition:
+        opacity 1s ease;
+
+}
+
+
+.balloons.active {
+
+    opacity: 1;
+
+}
+
+
+.balloon {
+
+    position: absolute;
+
+    width: 45px;
+    height: 57px;
+
+    border-radius:
+        50% 50% 46% 46%;
+
+    bottom: -100px;
+
+    opacity: .82;
+
+    animation:
+        riseBalloon
+        14s
+        linear
+        infinite;
+
+}
+
+
+.balloon::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 9px;
+    height: 9px;
+
+    left: 50%;
+
+    bottom: -5px;
+
+    transform:
+        translateX(-50%)
+        rotate(45deg);
+
+    background:
+        inherit;
+
+}
+
+
+.balloon span {
+
+    position: absolute;
+
+    width: 1px;
+    height: 105px;
+
+    top: 56px;
+    left: 50%;
+
+    background:
+        rgba(255,255,255,.42);
+
+}
+
+
+.b1 {
+
+    left: 4%;
+
+    background: #a96de8;
+
+    animation-duration: 13s;
+
+}
+
+
+.b2 {
+
+    left: 18%;
+
+    background: #ed91d4;
+
+    animation-delay: 3s;
+
+    animation-duration: 16s;
+
+}
+
+
+.b3 {
+
+    left: 37%;
+
+    background: #8379ed;
+
+    animation-delay: 7s;
+
+    animation-duration: 17s;
+
+}
+
+
+.b4 {
+
+    right: 35%;
+
+    background: #d39be9;
+
+    animation-delay: 1s;
+
+    animation-duration: 15s;
+
+}
+
+
+.b5 {
+
+    right: 17%;
+
+    background: #e99fd9;
+
+    animation-delay: 5s;
+
+    animation-duration: 14s;
+
+}
+
+
+.b6 {
+
+    right: 4%;
+
+    background: #917be9;
+
+    animation-delay: 8s;
+
+    animation-duration: 18s;
+
+}
+
+
+/* =========================
+   CONFETTIS
+========================= */
+
+#confetti {
+
+    position: fixed;
+
+    inset: 0;
+
+    overflow: hidden;
+
+    pointer-events: none;
+
+    z-index: 200;
+
+}
+
+
+.confetti {
+
+    position: absolute;
+
+    top: -20px;
+
+    width: 7px;
+    height: 13px;
+
+    border-radius: 2px;
+
+    animation:
+        confettiFall
+        linear
+        forwards;
+
+}
+
+
+/* =========================
+   CARTE
+========================= */
+
+#birthdayCard {
+
+    display: none;
+
+    position: relative;
+
+    width: min(92%, 880px);
+
+    margin: 45px auto;
+
+    opacity: 0;
+
+    z-index: 10;
+
+}
+
+
+#birthdayCard.show {
+
+    display: block;
+
+    animation:
+        cardAppear
+        1s
+        cubic-bezier(.2,.8,.2,1)
+        forwards;
+
+}
+
+
+.card-glow {
+
+    position: absolute;
+
+    inset: -30px;
+
+    border-radius: 45px;
+
+    background:
+        linear-gradient(
+            120deg,
+            rgba(165,102,255,.2),
+            rgba(240,151,218,.12),
+            rgba(124,113,255,.18)
+        );
+
+    filter: blur(35px);
+
+    z-index: -1;
+
+}
+
+
+.card-border {
+
+    position: relative;
+
+    overflow: hidden;
+
+    min-height: 800px;
+
+    padding:
+        55px
+        60px
+        50px;
+
+    border-radius: 34px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.98),
+            rgba(250,243,251,.98)
+        );
+
+    color: var(--text);
+
+    box-shadow:
+        0 35px 90px
+        rgba(0,0,0,.42),
+
+        inset 0 0 0 1px
+        rgba(255,255,255,.8);
+
+}
+
+
+/* bordure interne */
+
+.card-border::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 16px;
+
+    border-radius: 25px;
+
+    border: 1px solid
+        rgba(129,92,139,.25);
+
+    pointer-events: none;
+
+}
+
+
+/* décoration lumineuse */
+
+.card-border::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 180px;
+    height: 180px;
+
+    right: -80px;
+    top: -80px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(191,126,240,.12);
+
+    filter: blur(10px);
+
+}
+
+
+/* =========================
+   ORNEMENTS
+========================= */
+
+.ornament {
+
+    position: absolute;
+
+    color: #9870a1;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 25px;
+
+    z-index: 2;
+
+}
+
+
+.ornament-1 {
+
+    top: 24px;
+    left: 27px;
+
+}
+
+
+.ornament-2 {
+
+    top: 24px;
+    right: 27px;
+
+}
+
+
+.ornament-3 {
+
+    bottom: 24px;
+    left: 27px;
+
+}
+
+
+.ornament-4 {
+
+    bottom: 24px;
+    right: 27px;
+
+}
+
+
+/* =========================
+   EN-TÊTE
+========================= */
+
+.letter-header {
+
+    position: relative;
+
+    min-height: 95px;
+
+}
+
+
+.senders {
+
+    position: absolute;
+
+    top: 0;
+    left: 5px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    font-size: 25px;
+
+    line-height: 1.12;
+
+}
+
+
+.date {
+
+    position: absolute;
+
+    top: 4px;
+    right: 4px;
+
+    font-size: 23px;
+
+    white-space: nowrap;
+
+    color: #463849;
+
+}
+
+
+/* =========================
+   DESTINATAIRE
+========================= */
+
+.recipient {
+
+    margin-top: 40px;
+
+    margin-left: 31%;
+
+}
+
+
+.parents-block {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 1px;
+
+    font-size: 24px;
+
+    line-height: 1.08;
+
+}
+
+
+.parents-label {
+
+    margin-bottom: 3px;
+
+}
+
+
+.daughter {
+
+    margin-top: 38px;
+
+    margin-left: 18px;
+
+    font-size: 27px;
+
+}
+
+
+.person-name {
+
+    margin-top: 3px;
+
+    margin-left: 18px;
+
+    font-family:
+        "Caveat",
+        cursive;
+
+    font-size:
+        clamp(31px, 5vw, 45px);
+
+    font-weight: 600;
+
+    letter-spacing: 1px;
+
+    color: #35283a;
+
+}
+
+
+/* =========================
+   MESSAGE
+========================= */
+
+.message {
+
+    width: 84%;
+
+    margin: 43px auto 0;
+
+    font-size: 26px;
+
+    line-height: 1.34;
+
+}
+
+
+.message p {
+
+    margin-bottom: 18px;
+
+}
+
+
+.message span {
+
+    font-weight: 500;
+
+}
+
+
+.message strong {
+
+    font-weight: 600;
+
+}
+
+
+.glory {
+
+    text-align: center;
+
+    margin-top: 24px;
+
+    font-size: 30px;
+
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+.card-footer {
+
+    margin-top: 35px;
+
+    margin-right: 8%;
+
+    text-align: right;
+
+}
+
+
+.amen {
+
+    display: inline-block;
+
+    font-size: 34px;
+
+}
+
+
+.footer-symbol {
+
+    color: #9870a1;
+
+    font-size: 20px;
+
+    margin-top: 3px;
+
+}
+
+
+/* =========================
+   BOUTON
+========================= */
+
+.finish-btn {
+
+    display: block;
+
+    margin: 45px auto 0;
+
+    padding: 8px 20px;
+
+    border-radius: 22px;
+
+    border: 1px solid
+        rgba(70,56,73,.25);
+
+    background:
+        rgba(255,255,255,.5);
+
+    color: #66546a;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 15px;
+
+    cursor: pointer;
+
+    opacity: 0;
+
+    animation:
+        buttonAppear
+        1s
+        ease
+        3s
+        forwards;
+
+}
+
+
+/* =========================
+   ANIMATIONS
+========================= */
+
+@keyframes introAppear {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(25px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0);
+
+    }
+
+}
+
+
+@keyframes symbolFloat {
+
+    0%, 100% {
+
+        transform:
+            translateY(0)
+            rotate(0);
+
+    }
+
+    50% {
+
+        transform:
+            translateY(-8px)
+            rotate(5deg);
+
+    }
+
+}
+
+
+@keyframes cardAppear {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(35px)
+            scale(.96);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+
+    }
+
+}
+
+
+@keyframes riseBalloon {
+
+    from {
+
+        transform:
+            translateY(0)
+            rotate(-5deg);
+
+    }
+
+    50% {
+
+        transform:
+            translateY(-55vh)
+            rotate(6deg);
+
+    }
+
+    to {
+
+        transform:
+            translateY(-125vh)
+            rotate(-5deg);
+
+    }
+
+}
+
+
+@keyframes confettiFall {
+
+    from {
+
+        transform:
+            translateY(-20px)
+            rotate(0);
+
+        opacity: 1;
+
+    }
+
+    to {
+
+        transform:
+            translateY(110vh)
+            rotate(720deg);
+
+        opacity: 0;
+
+    }
+
+}
+
+
+@keyframes buttonAppear {
+
+    from {
+
+        opacity: 0;
+
+    }
+
+    to {
+
+        opacity: 1;
+
+    }
+
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 650px) {
+
+    #intro {
+
+        padding: 20px;
+
+    }
+
+
+    .intro-card {
+
+        padding: 35px 15px;
+
+    }
+
+
+    .intro-card h1 {
+
+        font-size: 45px;
+
+    }
+
+
+    .intro-text {
+
+        font-size: 19px;
+
+    }
+
+
+    #birthdayCard {
+
+        width: 94%;
+
+        margin:
+            25px auto
+            40px;
+
+    }
+
+
+    .card-border {
+
+        min-height: 720px;
+
+        padding:
+            34px
+            24px
+            38px;
+
+        border-radius: 27px;
+
+    }
+
+
+    .card-border::before {
+
+        inset: 10px;
+
+        border-radius: 19px;
+
+    }
+
+
+    .ornament {
+
+        font-size: 18px;
+
+    }
+
+
+    .ornament-1 {
+
+        top: 17px;
+        left: 18px;
+
+    }
+
+
+    .ornament-2 {
+
+        top: 17px;
+        right: 18px;
+
+    }
+
+
+    .ornament-3 {
+
+        bottom: 17px;
+        left: 18px;
+
+    }
+
+
+    .ornament-4 {
+
+        bottom: 17px;
+        right: 18px;
+
+    }
+
+
+    .letter-header {
+
+        min-height: 82px;
+
+    }
+
+
+    .senders {
+
+        left: 3px;
+
+        font-size: 19px;
+
+    }
+
+
+    .date {
+
+        top: 2px;
+        right: 0;
+
+        font-size: 15px;
+
+    }
+
+
+    .recipient {
+
+        margin-top: 38px;
+
+        margin-left: 11%;
+
+    }
+
+
+    .parents-block {
+
+        font-size: 19px;
+
+    }
+
+
+    .daughter {
+
+        margin-top: 28px;
+
+        margin-left: 5px;
+
+        font-size: 21px;
+
+    }
+
+
+    .person-name {
+
+        margin-left: 4px;
+
+        font-size: 27px;
+
+        line-height: 1.05;
+
+    }
+
+
+    .message {
+
+        width: 94%;
+
+        margin-top: 35px;
+
+        font-size: 20px;
+
+        line-height: 1.38;
+
+    }
+
+
+    .message p {
+
+        margin-bottom: 15px;
+
+    }
+
+
+    .glory {
+
+        font-size: 23px;
+
+        margin-top: 20px;
+
+    }
+
+
+    .card-footer {
+
+        margin-top: 25px;
+
+        margin-right: 4%;
+
+    }
+
+
+    .amen {
+
+        font-size: 29px;
+
+    }
+
+
+    .finish-btn {
+
+        margin-top: 35px;
+
+    }
+
+
+    .balloon {
+
+        width: 33px;
+        height: 43px;
+
+    }
+
+
+    .balloon span {
+
+        top: 43px;
+
+    }
+
+}
